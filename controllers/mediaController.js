@@ -155,6 +155,7 @@ exports.uploadImage = async (req, res) => {
     });
 
     blobStream.on('finish', async () => {
+        await blob.makePublic();
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/images/${filename}`;
 
       const media = new Media({
@@ -196,6 +197,7 @@ exports.uploadVideo = async (req, res) => {
     });
 
     blobStream.on('finish', async () => {
+        await blob.makePublic();
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/videos/${filename}`;
 
       const media = new Media({
