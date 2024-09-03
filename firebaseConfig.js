@@ -32,7 +32,8 @@ const serviceAccount = {
 
 // Initialize the Firebase Admin SDK
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
+  storageBucket: 'beni-media-storage.appspot.com',
 });
 
 // Your Firebase code here
