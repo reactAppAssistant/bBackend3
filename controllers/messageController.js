@@ -4,22 +4,8 @@ const Message = require('../models/Message');
 const Conversation = require('../models/Conversation'); // Define this model
 
 
-
-// exports.getMessages = async (req, res) => {
-//     const messages = await Message.find().sort({ createdAt: -1 }).limit(50);
-//     res.json(messages);
-// };
-
-// exports.sendMessage = async (req, res) => {
-//     const { text, user } = req.body;
-//     const message = new Message({ text, user });
-//     await message.save();
-//     res.status(201).json(message);
-// };
-
-
 exports.sendMessage = async (req, res) => {
-    const { conversationId, text, user } = req.body;
+    const { conversationId, text, user, mediaUrl} = req.body;
   
     try {
       const conversation = await Conversation.findById(conversationId);
@@ -27,7 +13,7 @@ exports.sendMessage = async (req, res) => {
         return res.status(404).json({ message: 'Conversation not found' });
       }
   
-      conversation.messages.push({ text, user });
+      conversation.messages.push({ text, user, mediaUrl });
       await conversation.save();
   
       res.status(201).json(conversation.messages[conversation.messages.length - 1]);
