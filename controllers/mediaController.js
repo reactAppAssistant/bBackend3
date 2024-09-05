@@ -166,7 +166,7 @@ exports.uploadImage = async (req, res) => {
       });
 
       await media.save();
-      res.status(201).json({ filename });
+      res.status(201).json({ publicUrl });
     });
 
     blobStream.end(req.file.buffer);
@@ -208,7 +208,7 @@ exports.uploadVideo = async (req, res) => {
       });
 
       await media.save();
-      res.status(201).json({ filename });
+      res.status(201).json({ publicUrl });
     });
 
     blobStream.end(req.file.buffer);
