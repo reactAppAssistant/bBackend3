@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const messageSchema = new mongoose.Schema({
     text: String,
     user: String,
+    mediaUrl: String,
     createdAt: { type: Date, default: Date.now },
 });
 
