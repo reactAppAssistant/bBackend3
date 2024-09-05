@@ -6,6 +6,7 @@ const ConversationSchema = new mongoose.Schema({
     {
       text: String,
       user: String,
+      imageUrl: String,
       createdAt: { type: Date, default: Date.now }
     }
   ]
