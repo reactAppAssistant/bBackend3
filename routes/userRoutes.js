@@ -29,4 +29,7 @@ router.post('/unfollowUser', userController.unfollowUser);
 // Route to check if a user is following another user by email
 router.post('/isFollowing', userController.isFollowing);
 
+// New Route to update user profile
+router.post('/updateUserProfile', userController.updateUserProfile);
+
 module.exports = router;
