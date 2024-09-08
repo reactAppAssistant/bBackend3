@@ -25,7 +25,8 @@ router.get('/getSpecificConversation', async (req, res) => {
   try {
     // Find conversations where the first participant (user1Email) matches currentUserEmail
     const conversations = await Conversation.find({
-      'participants.0': currentUserEmail // 'participants.0' references the first element of the participants array
+      // 'participants.0': currentUserEmail // 'participants.0' references the first element of the participants array
+      participants: { $in: [currentUserEmail] }
     });
 
     if (conversations.length === 0) {
