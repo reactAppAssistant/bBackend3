@@ -19,4 +19,24 @@ router.get('/getAllConversations', async (req, res) => {
   }
 });
 
+router.get('/getSpecificConversation', async (req, res) => {
+  const { currentUserEmail } = req.query; // Get the current user's email from the query parameters
+
+  try {
+    // Find conversations where the first participant (user1Email) matches currentUserEmail
+    const conversations = await Conversation.find({
+      'participants.0': currentUserEmail // 'participants.0' references the first element of the participants array
+    });
+
+    if (conversations.length === 0) {
+      return res.status(404).json({ message: 'No conversations found for this user.' });
+    }
+
+    // Return the conversations found
+    res.json(conversations);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
 module.exports = router;
