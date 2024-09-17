@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 // Publish a new post
 exports.publishPost = async (req, res) => {
-  const { email, content } = req.body;
+  const { email, content, imageUrl } = req.body;
 
   try {
     // Fetch user details
@@ -24,6 +24,7 @@ exports.publishPost = async (req, res) => {
         fullName: user.fullName,
         username: user.username,
         email: user.email,
+        imageUrl,  // Save imageUrl
         content,
         reactions: new Map([
           ['thumbsUp', 0],
