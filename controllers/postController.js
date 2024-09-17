@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 // Publish a new post
 exports.publishPost = async (req, res) => {
-  const { email, content, imageUrl } = req.body;
+  const { email, content="", imageUrl="" } = req.body;
 
   try {
     // Fetch user details
