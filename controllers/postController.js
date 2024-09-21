@@ -23,6 +23,7 @@ exports.publishPost = async (req, res) => {
     const newPost = new Post({
         fullName: user.fullName,
         username: user.username,
+        profileImageUrl: user.profileImageUrl,
         email: user.email,
         imageUrl,  // Save imageUrl
         content,
