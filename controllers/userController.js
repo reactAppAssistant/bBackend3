@@ -159,7 +159,7 @@ exports.getUserByEmail = async (req, res) => {
   const { email } = req.params;  // Get the email from the request parameters
 
   try {
-    const user = await User.findOne({ email }, 'fullName username email followers following tagline profession dateOfBirth country profileImageUrl coverImageUrl');  // Fetch fullName, username, and email fields
+    const user = await User.findOne({ email }, 'fullName username email followers following tagline profession dateOfBirth country profileImageUrl coverImageUrl isBlocked');  // Fetch fullName, username, and email fields
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
