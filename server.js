@@ -5,6 +5,7 @@ const postRoutes = require('./routes/postRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const conversationRoutes = require('./routes/conversationRoutes');
 const mediaRoutes = require('./routes/mediaRoutes');
+const newsRoutes = require('./routes/newsRoutes');
 
 const cors = require('cors');
 
@@ -34,6 +35,7 @@ app.use('/api/posts', postRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/conversations', conversationRoutes);
 app.use('/api/media', mediaRoutes);
+app.use('/api/news', newsRoutes);
 
 // Start the server
 app.listen(PORT, () => {
